@@ -478,14 +478,14 @@ _________________________________________________________ -->
  _________________________________________________________ -->
 
                         <div class="panel panel-default sidebar-menu with-icons">
-
+<!--
                             <div class="panel-heading">
-                                <h3 class="panel-title">Categories</h3>
-                            </div>
+                                <h3 class="panel-title">RECENT UPDATES</h3>
+                            </div>-->
 
                             <div class="panel-body">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="template-accordions.html">Accordions</a>
+                                 <!--   <li class="active"><a href="template-accordions.html">Accordions</a>
                                     </li>
                                     <li><a href="template-alerts.html">Alerts</a>
                                     </li>
@@ -500,7 +500,11 @@ _________________________________________________________ -->
                                     <li><a href="template-tabs.html">Tabs</a>
                                     </li>
                                     <li><a href="template-typography.html">Typography</a>
-                                    </li>
+                                    </li>-->
+                                    <li class="alert alert-success" role="alert">EARTHQUAKE</li>
+                                    <li class="alert alert-warning" role="alert">TROPICAL CYCLONE</li>
+                                    <li class="alert alert-info" role="alert">FLOODS</li>
+                                    <li  class="alert alert-danger" role="alert">VOLCANOES</li>
                             </div>
                         </div>
 
@@ -509,7 +513,7 @@ _________________________________________________________ -->
                     </div>
 
                     <div class="col-md-9">
-
+<!--
                         <div class="heading">
                             <h2>Alerts</h2>
                         </div>
@@ -518,31 +522,71 @@ _________________________________________________________ -->
                         <div class="alert alert-info" role="alert">Well done! You successfully read this important alert message.</div>
                         <div class="alert alert-warning" role="alert">Well done! You successfully read this important alert message.</div>
                         <div class="alert alert-danger" role="alert">Well done! You successfully read this important alert message.</div>
-
+-->
                         <div class="heading">
-                            <h2>Dismissable alerts</h2>
-                        </div>
+                            <h2>RECENT  UPDATES</h2>
+                        </div>  
 
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                            </button>
-                            Well done! You successfully read this important alert message.
-                        </div>
-                        <div class="alert alert-info alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                            </button>
-                            Well done! You successfully read this important alert message.
-                        </div>
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                            </button>
-                            Well done! You successfully read this important alert message.
-                        </div>
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                            </button>
-                            Well done! You successfully read this important alert message.
-                        </div>
+
+
+
+                        <script type="text/javascript">
+    function handle_crisis(crisis, title,colour) {
+        document.write("<h1>" + title + "</h1>");
+        for ( var count in crisis ) {
+            var title = crisis[count]['dc_title'];
+            document.write( "<div class='alert alert-"+colour+" alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close></span></button>" +title+ "</div>");
+           
+
+
+
+
+
+        }
+    }
+    function handle_earthquakes(crisis) {
+        handle_crisis(crisis, "Earthquakes","success");
+    }
+    function handle_cyclones(crisis) {
+        handle_crisis(crisis, "Tropical Cyclones","warning");
+    }
+    function handle_floods(crisis) {
+        handle_crisis(crisis, "Floods","info");
+    }
+    function handle_volcanoes(crisis) {
+        handle_crisis(crisis, "Volcanoes","danger");
+    }
+</script>
+
+<script type="text/javascript"
+    src="http://api.sigimera.org/v1/crises?auth_token=fsyxXiAReysgptbRRNAn&type=earthquakes&callback=handle_earthquakes">
+    Please active JavaScript to get earthquakes...
+</script>
+
+<script type="text/javascript"
+    src="http://api.sigimera.org/v1/crises?auth_token=fsyxXiAReysgptbRRNAn&type=cyclones&callback=handle_cyclones">
+    Please active JavaScript to get tropical cyclones...
+</script>
+
+<script type="text/javascript"
+    src="http://api.sigimera.org/v1/crises?auth_token=fsyxXiAReysgptbRRNAn&type=floods&callback=handle_floods">
+    Please active JavaScript to get floods...
+</script>
+
+<script type="text/javascript"
+    src="http://api.sigimera.org/v1/crises?auth_token=fsyxXiAReysgptbRRNAn&type=volcanoes&callback=handle_volcanoes">
+    Please active JavaScript to get volcanoes...
+</script>
+
+
+
+
+
+
+
+
+                     
+                     
 
                     </div>
                 </div>
